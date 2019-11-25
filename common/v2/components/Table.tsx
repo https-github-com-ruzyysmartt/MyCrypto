@@ -14,6 +14,7 @@ import React, {
 import styled, { StyledComponentClass } from 'styled-components';
 import { Theme } from '@mycrypto/ui';
 
+import { noOp } from 'v2/utils';
 import { default as Typography } from './Typography';
 import { default as IconCaret } from './IconCaret';
 
@@ -137,9 +138,6 @@ TableCell.defaultProps = {
   as: 'td'
 };
 
-// tslint:disable-next-line
-const noop = () => {};
-
 export const defaultColumnSort = (a: any, b: any): number => {
   try {
     const aText = a.props.children;
@@ -222,7 +220,7 @@ class AbstractTable extends Component<Props, State> {
               return (
                 <TableHeading
                   key={index}
-                  onClick={isSortableColumn ? this.toggleSortedColumnDirection : noop}
+                  onClick={isSortableColumn ? this.toggleSortedColumnDirection : noOp}
                   role={isSortableColumn ? 'button' : ''}
                   isSortable={isSortableColumn}
                   isHidden={isHiddenHeading}

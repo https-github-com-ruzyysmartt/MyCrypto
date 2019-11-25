@@ -20,6 +20,7 @@ import { DashboardPanel } from './DashboardPanel';
 import './AccountList.scss';
 import { RatesContext } from 'v2/services';
 import { default as Currency } from './Currency';
+import { TUuid } from 'v2/types/uuid';
 
 const Label = styled.span`
   display: flex;
@@ -89,9 +90,8 @@ const TableContainer = styled.div`
   overflow: auto;
 `;
 
-type DeleteAccount = (uuid: string) => void;
-type UpdateAccount = (uuid: string, accountData: ExtendedAccount) => void;
 interface AccountListProps {
+  accounts: StoreAccount[];
   className?: string;
   currentsOnly?: boolean;
   deletable?: boolean;
@@ -104,13 +104,11 @@ export const screenIsMobileSized = (breakpoint: number): boolean =>
   window.matchMedia(`(max-width: ${breakpoint}px)`).matches;
 
 export default function AccountList(props: AccountListProps) {
-  const { className, currentsOnly, deletable, favoritable, footer, copyable } = props;
-  const { currentAccounts, accounts, deleteAccountFromCache } = useContext(StoreContext);
+  const { accounts: displayAccounts, className, deletable, favoritable, footer, copyable } = props;
+  const { deleteAccountFromCache } = useContext(StoreContext);
   const { updateAccount } = useContext(AccountContext);
-
   const [deletingIndex, setDeletingIndex] = useState();
   const overlayRows = [deletingIndex];
-
   return (
     <DashboardPanel
       heading={translateRaw('ACCOUNT_LIST_TABLE_ACCOUNTS')}
@@ -127,7 +125,7 @@ export default function AccountList(props: AccountListProps) {
         <CollapsibleTable
           breakpoint={breakpointToNumber(BREAK_POINTS.SCREEN_XS)}
           {...buildAccountTable(
-            currentsOnly ? currentAccounts() : accounts,
+            displayAccounts,
             deleteAccountFromCache,
             updateAccount,
             deletable,
@@ -144,8 +142,8 @@ export default function AccountList(props: AccountListProps) {
 
 function buildAccountTable(
   accounts: StoreAccount[],
-  deleteAccount: DeleteAccount,
-  updateAccount: UpdateAccount,
+  deleteAccount: (a: ExtendedAccount) => void,
+  updateAccount: (u: TUuid, a: ExtendedAccount) => void,
   deletable?: boolean,
   favoritable?: boolean,
   copyable?: boolean,
@@ -156,6 +154,7 @@ function buildAccountTable(
   const { getAssetRate } = useContext(RatesContext);
   const { settings } = useContext(SettingsContext);
   const { addressBook } = useContext(AddressBookContext);
+
   const columns = [
     translateRaw('ACCOUNT_LIST_LABEL'),
     translateRaw('ACCOUNT_LIST_ADDRESS'),
@@ -177,7 +176,7 @@ function buildAccountTable(
                   : ''
               } account with address: ${accounts[overlayRows[0]].address} ?`}
           deleteAction={() => {
-            deleteAccount(accounts[overlayRows[0]].uuid);
+            deleteAccount(accounts[overlayRows[0]]);
             setDeletingIndex(undefined);
           }}
           cancelAction={() => setDeletingIndex(undefined)}

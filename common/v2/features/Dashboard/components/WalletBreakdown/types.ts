@@ -1,4 +1,4 @@
-import { Fiat } from 'v2/config';
+import { Fiat } from 'v2/types';
 
 export interface Balance {
   name: string;
