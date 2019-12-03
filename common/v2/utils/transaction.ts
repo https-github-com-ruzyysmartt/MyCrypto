@@ -26,7 +26,7 @@ export function fromTxReceiptObj(txReceipt: ITxReceipt): ITxReceipt | undefined 
             contractAsset.decimal || DEFAULT_ASSET_DECIMAL
           )
         : fromWei(Wei(hexWeiToString(txReceipt.value._hex)), 'ether').toString(),
-      to: contractAsset ? ERC20.transfer.decodeInput(txReceipt.data)._to : txReceipt.to,
+      to: contractAsset ? ERC20.transfer.decodeInput(txReceipt.data)._to : txReceipt.to || '0x',
       nonce: txReceipt.nonce,
       gasLimit: txReceipt.gasLimit, // Hex
       gasPrice: txReceipt.gasPrice, // Hex - wei
