@@ -12,7 +12,8 @@ import {
   TrezorDecrypt,
   Web3ProviderDecrypt,
   Web3ProviderInstall,
-  ViewOnlyDecrypt
+  ViewOnlyDecrypt,
+  WalletConnectProviderDecrypt
 } from 'v2/components';
 
 export const STORIES: IStory[] = [
@@ -36,6 +37,10 @@ export const STORIES: IStory[] = [
     name: WalletId.PARITY_SIGNER,
     steps: [NetworkSelectPanel, ParitySignerDecrypt, SaveAndRedirect],
     hideFromWalletList: true
+  },
+  {
+    name: WalletId.WALLETCONNECT,
+    steps: [NetworkSelectPanel, WalletConnectProviderDecrypt, SaveAndRedirect]
   },
   {
     name: WalletId.KEYSTORE_FILE,

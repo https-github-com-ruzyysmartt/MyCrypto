@@ -9,6 +9,7 @@ import LedgerSVG from 'common/assets/images/wallets/ledger.svg';
 import TrezorSVG from 'common/assets/images/wallets/trezor.svg';
 import SafeTSVG from 'common/assets/images/wallets/safe-t.png';
 import ParitySignerSVG from 'common/assets/images/wallets/parity-signer.svg';
+import WalletConnectSVG from 'assets/images/wallets/walletconnect.svg';
 
 const web3ProviderInfo = getWeb3ProviderInfo();
 
@@ -188,6 +189,17 @@ export const WALLETS_CONFIG: Record<WalletId, IWalletConfig> = {
     type: WalletType.MISC,
     lid: 'VIEW_ADDR',
     description: 'ADD_VIEW_ADDRESS_DESC'
+  },
+  [WalletId.WALLETCONNECT]: {
+    id: WalletId.WALLETCONNECT,
+    name: 'WalletConnect',
+    isDeterministic: false,
+    isSecure: true,
+    isDesktopOnly: false,
+    type: WalletType.WALLETCONNECT,
+    lid: 'ʇɔǝuuoɔʇǝʃʃɐʍ',
+    icon: WalletConnectSVG,
+    description: 'ADD_WALLETCONNECTDESC'
   }
 };
 

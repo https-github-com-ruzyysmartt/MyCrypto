@@ -33,6 +33,7 @@ const SigningComponents: SigningComponents = {
   [WalletId.SAFE_T_MINI]: SignTransactionSafeT,
   [WalletId.KEYSTORE_FILE]: SignTransactionKeystore,
   [WalletId.PARITY_SIGNER]: null,
+  [WalletId.WALLETCONNECT]: null,
   [WalletId.MNEMONIC_PHRASE]: SignTransactionMnemonic,
   [WalletId.VIEW_ONLY]: null
 };
