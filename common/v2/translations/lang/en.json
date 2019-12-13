@@ -89,6 +89,7 @@
     "X_KEEPKEY": "KeepKey",
     "UNLOCK_WALLET": "Connect and Unlock",
     "SIGNER_SELECT_WALLET": "Connect and Unlock with $walletId",
+    "SIGNER_SELECT_WALLETCONNECT": "Connect and Unlock your $walletId App",
     "SIGNER_SELECT_WALLET_QR": "Open your $walletId app on your phone and scan the QR code.",
     "SIGNER_SELECT_WALLET_LIST": "Use a recent account",
     "X_SAFE_T": "Safe-T Mini ",
@@ -97,7 +98,7 @@
     "ORDER_SAFE_T": "Don’t have a Safe-T Mini? [Get one now!]()",
     "SAFET_MINI_HELP": "[Learn how SafeT Mini works with MyCrypto](https://support.mycrypto.com/troubleshooting/hardware-wallets/archos/archos-safet-mini)",
     "X_PARITYSIGNER": "Parity Signer ",
-    "X_WALLETCONNECT": "Wallet Connect ",
+    "X_WALLETCONNECT": "WalletConnect",
     "ADD_VIEW_ADDRESS_DESC": "View your account & balances using only your address ",
     "ADD_PARITY_DESC": "Connect & sign via your Parity Signer mobile app ",
     "ADD_PARITY_1": "Transaction canceled ",
@@ -1085,6 +1086,9 @@
     "SIGN_TX_SUBMITTING_PENDING": "Submitting transaction now.",
     "SIGN_TX_HELP_LINK": "Not working? [Here's some troubleshooting tips to try]($helpLink).",
     "SIGN_TX_KEYSTORE_WRONG_FILE": "The uploaded keystore file's public address does not match transaction's sender address, please upload correct keystore file.",
-    "SIGN_TX_KEYSTORE_WRONG_PASSWORD": "Incorrect Keystore File Password."
+    "SIGN_TX_KEYSTORE_WRONG_PASSWORD": "Incorrect Keystore File Password.",
+    "SIGN_TX_WALLETCONNECT_FAILED_ACCOUNT": "Please switch the account in your $walletName app to $address in order to proceed.",
+    "SIGN_TX_WALLETCONNECT_FAILED_NETWORK": "Please switch the network in your $walletName app to $networkName in order to proceed.",
+    "SIGN_TX_WALLETCONNECT_REJECTED": "Transaction has been rejected or there was an error. If you rejected the tx, please approve it. Otherwise, please restart the Send Assets flow."
   }
 }

@@ -14,7 +14,8 @@ import {
   SignTransactionTrezor,
   SignTransactionSafeT,
   SignTransactionKeystore,
-  SignTransactionMnemonic
+  SignTransactionMnemonic,
+  SignTransactionWalletConnect
 } from 'v2/components';
 
 type SigningComponents = {
@@ -33,7 +34,7 @@ const SigningComponents: SigningComponents = {
   [WalletId.SAFE_T_MINI]: SignTransactionSafeT,
   [WalletId.KEYSTORE_FILE]: SignTransactionKeystore,
   [WalletId.PARITY_SIGNER]: null,
-  [WalletId.WALLETCONNECT]: null,
+  [WalletId.WALLETCONNECT]: SignTransactionWalletConnect,
   [WalletId.MNEMONIC_PHRASE]: SignTransactionMnemonic,
   [WalletId.VIEW_ONLY]: null
 };
