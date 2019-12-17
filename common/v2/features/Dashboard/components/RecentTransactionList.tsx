@@ -178,9 +178,9 @@ export default function RecentTransactionList({ accountsList, className = '' }: 
           <NewTabLink
             key={4}
             href={
-              network && 'blockExplorer' in network
-                ? network.blockExplorer.txUrl(hash)
-                : `https://etherscan.io/tx/${hash}`
+              !network || !('blockExplorer' in network) || !network.blockExplorer
+                ? `https://etherscan.io/tx/${hash}`
+                : network.blockExplorer.txUrl(hash)
             }
           >
             {' '}
