@@ -68,6 +68,7 @@ const InteractWithContractsFlow = (props: RouteComponentProps<{}>) => {
   } = useStateReducer(InteractWithContractsFactory, interactWithContractsInitialState);
 
   const { account }: InteractWithContractState = interactWithContractsState;
+  const { history, location } = props;
 
   const goToFirstStep = () => {
     setStep(0);
@@ -78,7 +79,6 @@ const InteractWithContractsFlow = (props: RouteComponentProps<{}>) => {
   };
 
   const goToPreviousStep = () => {
-    const { history } = props;
     if (step === 0) {
       history.push(ROUTE_PATHS.DASHBOARD.path);
     } else {
@@ -87,7 +87,6 @@ const InteractWithContractsFlow = (props: RouteComponentProps<{}>) => {
   };
 
   const tabClickRedirect = (url: string): void => {
-    const { history } = props;
     history.push(url);
   };
 
