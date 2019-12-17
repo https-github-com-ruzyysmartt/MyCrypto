@@ -134,6 +134,7 @@
     "coveralls": "3.0.9",
     "cross-env": "6.0.3",
     "css-loader": "3.3.0",
+    "cypress": "3.8.0",
     "electron": "6.1.5",
     "electron-builder": "21.2.0",
     "empty": "0.10.1",
@@ -212,7 +213,8 @@
     "formatAll": "find ./common/ -name '*.ts*' | xargs prettier --write --config ./.prettierrc --config-precedence file-override",
     "prettier:diff": "prettier --write --config ./.prettierrc --list-different \"common/**/*.ts\" \"common/**/*.tsx\"",
     "update:tokens": "parse-eth-tokens --networks all --output ./common/config/tokens",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "cypress:open": "cypress open"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
