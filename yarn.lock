@@ -788,6 +788,11 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@cypress/electron-plugin@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@cypress/electron-plugin/-/electron-plugin-1.1.0.tgz#d467b677f5a7fc859768865af5d9abd4a484716e"
+  integrity sha512-zDSMSUrx4kNUxZnv8voyiGr7ugcn92aRcSy9s2aWbWJdOj4bMmTNQuWSQlcemGy0sLQ//+vAHD4zdQGDgfbIJQ==
+
 "@cypress/listr-verbose-renderer@0.4.1":
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/@cypress/listr-verbose-renderer/-/listr-verbose-renderer-0.4.1.tgz#a77492f4b11dcc7c446a34b3e28721afd33c642a"
