@@ -1,6 +1,6 @@
 it('clicks', () => {
   // window creation and url load
-  cy.electronVisitUrl('./main_browser_window.js', 'http://localhost:4600')
+  cy.electronVisitUrl('./electron-app/main/index.js', 'http://localhost:3000')
   cy.get('button')
     .click()
     .click()
