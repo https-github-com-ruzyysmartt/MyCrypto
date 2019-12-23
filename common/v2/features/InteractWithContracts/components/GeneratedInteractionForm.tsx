@@ -209,6 +209,10 @@ export default function GeneratedInteractionForm({
         handleInputChange(inputFromURL.name, inputFromURL.value);
       });
       setIsFormFilledFromURL(true);
+      //if all inputs are prefilled then trigger read button
+      if (isRead && currentFunction.inputs.every(input => input.value)) {
+        submitFormRead(currentFunction);
+      }
     }
   }, [currentFunction]);
 
@@ -296,12 +300,11 @@ export default function GeneratedInteractionForm({
             <SpinnerWrapper>{isLoading && <Spinner size="x2" />}</SpinnerWrapper>
             {error && <InlineErrorMsg>{error}</InlineErrorMsg>}
             <ActionWrapper>
-              {isRead &&
-                inputs.length > 0 && (
-                  <ActionButton onClick={() => submitFormRead(currentFunction)}>
-                    {translateRaw('ACTION_16')}
-                  </ActionButton>
-                )}
+              {isRead && inputs.length > 0 && (
+                <ActionButton onClick={() => submitFormRead(currentFunction)}>
+                  {translateRaw('ACTION_16')}
+                </ActionButton>
+              )}
               {!isRead && (
                 <WriteFormWrapper>
                   <HorizontalLine />
